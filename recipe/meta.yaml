@@ -1,5 +1,5 @@
 {% set name = "fastdiff" %}
-{% set version = "0.1.4" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8f9510b9c7d0d3482cea602af161f02eb813303138284893704f5f3e9ef189fb
+  sha256: 623ad3d9055ab78e014d0d10767cb033d98d5d4f66052abf498350c8e42e29aa
 
 build:
   noarch: python
@@ -32,7 +32,7 @@ test:
   imports:
     - fastdiff
   commands:
-    - pytest --cov fastdiff
+    - pytest --cov fastdiff -vv -k "not native"
 
 about:
   home: https://github.com/syrusakbary/fastdiff
