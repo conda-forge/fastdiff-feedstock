@@ -32,7 +32,7 @@ test:
   imports:
     - fastdiff
   commands:
-    - pytest --cov fastdiff -vv
+    - pytest --cov fastdiff -vv -k "not native"
 
 about:
   home: https://github.com/syrusakbary/fastdiff
