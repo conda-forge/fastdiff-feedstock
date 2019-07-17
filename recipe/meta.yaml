@@ -32,7 +32,7 @@ test:
   imports:
     - fastdiff
   commands:
-    - pytest --cov fastdiff
+    - pytest --cov fastdiff -vv
 
 about:
   home: https://github.com/syrusakbary/fastdiff
