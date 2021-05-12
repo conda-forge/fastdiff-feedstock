@@ -1,5 +1,5 @@
 {% set name = "fastdiff" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 623ad3d9055ab78e014d0d10767cb033d98d5d4f66052abf498350c8e42e29aa
+  sha256: 4dfa09c47832a8c040acda3f1f55fc0ab4d666f0e14e6951e6da78d59acd945a
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
