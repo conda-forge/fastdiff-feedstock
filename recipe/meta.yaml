@@ -20,14 +20,14 @@ requirements:
     - python >=3.6
   run:
     - python >=3.6
-    - python-wasmer >=1.0.0
-    - python-wasmer-compiler-cranelift >=1.0.0
+    - python-wasmer >=1.1.0
+    - python-wasmer-compiler-cranelift >=1.1.0,!=1.1.0=*_0
 
 test:
   source_files:
     - tests
   requires:
-    - pytest <4
+    - pytest
     - pytest-benchmark
     - pytest-cov
   imports:
