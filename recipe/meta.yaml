@@ -21,19 +21,20 @@ requirements:
   run:
     - python >=3.6
     - python-wasmer >=1.1.0
-    - python-wasmer-compiler-cranelift >=1.1.0,!=1.1.0=*_0
-
+    - python-wasmer-compiler-cranelift >=1.1.0
 test:
   source_files:
     - tests
   requires:
+    - pip
     - pytest
     - pytest-benchmark
     - pytest-cov
   imports:
     - fastdiff
   commands:
-    - pytest --cov fastdiff -vv -k "not native"
+    - pip check
+    - pytest --cov fastdiff -vv -k "not native" --cov-report term-missing:skip-covered
 
 about:
   home: https://github.com/syrusakbary/fastdiff
