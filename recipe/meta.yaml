@@ -5,21 +5,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/f/fastdiff/fastdiff-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/f/fastdiff/fastdiff-{{ version }}.tar.gz
   sha256: 4dfa09c47832a8c040acda3f1f55fc0ab4d666f0e14e6951e6da78d59acd945a
 
 build:
+  number: 1
   noarch: python
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
     - pip
     - pytest-runner
-    - python >=3.6
+    - python {{ python_min }}
+    - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - python-wasmer >=1.1.0
     - python-wasmer-compiler-cranelift >=1.1.0
 test:
@@ -30,6 +32,7 @@ test:
     - pytest
     - pytest-benchmark
     - pytest-cov
+    - python {{ python_min }}
   imports:
     - fastdiff
   commands:
